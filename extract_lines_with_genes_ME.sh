@@ -22,15 +22,17 @@ echo "Error log for file $INPUT" > $DIR/${INPUT}_error.log
 #for tab separated files
 awk -F$'\t' '{print $1}' $INPUT > $DIR/${INPUT}_first_column
 head -n 1 $INPUT > $OUTPUT
-
+re='^[0-9]+$'
 while IFS=, read -r GENE; do
   echo "extracting Gene: $GENE"
   #Options n to display line number, option w to match whole word only
-  LINE_NUMBER=$(grep -nw $GENE $DIR/${INPUT}_first_column| cut -f1 -d:)
-  if [ $LINE_NUMBER -gt 0 ]
+  LINE_NUMBER=$(grep -nwi $GENE $DIR/${INPUT}_first_column| cut -f1 -d:)
+  if [[ $LINE_NUMBER =~ $re ]]
   then
-    sed -n $(echo $LINE_NUMBER)P $INPUT >> $OUTPUT
+      sed -n $(echo $LINE_NUMBER)P $INPUT >> $OUTPUT
   else
-    echo "Warning: $GENE not found" >> $DIR/${INPUT}_error.log
+      echo "Warning: $GENE not found" >> $DIR/${INPUT}_error.log
   fi
+
+
 done < "$GENES"
