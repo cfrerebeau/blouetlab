@@ -1,0 +1,23 @@
+{
+  "name": "sciencelab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cfrerebeau/sciencelab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cfrerebeau/sciencelab/issues"
+  },
+  "homepage": "https://github.com/cfrerebeau/sciencelab#readme",
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "fast-csv": "^2.4.1"
+  }
+}
