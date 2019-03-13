@@ -4,3 +4,4 @@ INPUT=$1
 OUTPUT=$2
 echo -ne 'Genes\t' > $OUTPUT
 cat $INPUT >> $OUTPUT
+dos2unix $OUTPUT
