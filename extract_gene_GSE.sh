@@ -18,7 +18,7 @@ mkdir -p $DIR
  awk '{print $1}' $INPUT > $DIR/first_column.txt
 #fi
 #look in that first column what is the line with the gene
-LINE_NUMBER=$(grep -ni $GENE$ $DIR/first_column.txt | cut -f1 -d:)
+LINE_NUMBER=$(grep -ni "^$GENE$" $DIR/first_column.txt | cut -f1 -d:)
 
 printf "gene is on line $LINE_NUMBER\n"
 
